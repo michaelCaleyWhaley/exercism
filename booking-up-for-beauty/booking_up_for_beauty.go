@@ -34,11 +34,13 @@ func Description(date string) string {
 	year := strconv.Itoa(dateTime.Year())
 	dateTimeHour, dateTimeMin, _ := dateTime.Clock()
 
+	// Refactor using date.Format
+
 	return fmt.Sprintf("You have an appointment on %s, %s %s, %s, at %d:%d.", weekday, month, day, year, dateTimeHour, dateTimeMin)
 }
 
 // AnniversaryDate returns a Time with this year's anniversary.
 func AnniversaryDate() time.Time {
-	anniTime, _ := time.Parse("January 2, 2006", "September 15, "+strconv.Itoa(time.Now().Year()))
+	anniTime, _ := time.Parse("January 2, 2006", fmt.Sprintf("September 15, %s", strconv.Itoa(time.Now().Year())))
 	return anniTime
 }
