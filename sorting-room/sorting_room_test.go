@@ -158,16 +158,16 @@ func TestDescribeAnything(t *testing.T) {
 		input       interface{}
 		want        string
 	}{
-		// {
-		// 	description: "Describe 7.2",
-		// 	input:       7.2,
-		// 	want:        "This is the number 7.2",
-		// },
-		// {
-		// 	description: "Describe 42",
-		// 	input:       42,
-		// 	want:        "This is the number 42.0",
-		// },
+		{
+			description: "Describe 7.2",
+			input:       7.2,
+			want:        "This is the number 7.2",
+		},
+		{
+			description: "Describe 42",
+			input:       42,
+			want:        "This is the number 42.0",
+		},
 		{
 			description: "Describe NumberBox with 16",
 			input:       testNumberBox{16},
@@ -178,16 +178,16 @@ func TestDescribeAnything(t *testing.T) {
 			input:       FancyNumber{"16"},
 			want:        "This is a fancy box containing the number 16.0",
 		},
-		// {
-		// 	description: "Describe a different FancyNumberBox",
-		// 	input:       differentFancyNumber{"ten"},
-		// 	want:        "This is a fancy box containing the number 0.0",
-		// },
-		// {
-		// 	description: "Something unknown is labelled return to sender",
-		// 	input:       "something we did not anticipate",
-		// 	want:        "Return to sender",
-		// },
+		{
+			description: "Describe a different FancyNumberBox",
+			input:       differentFancyNumber{"ten"},
+			want:        "This is a fancy box containing the number 0.0",
+		},
+		{
+			description: "Something unknown is labelled return to sender",
+			input:       "something we did not anticipate",
+			want:        "Return to sender",
+		},
 	}
 	for _, test := range tests {
 		t.Run(test.description, func(t *testing.T) {
